@@ -1,4 +1,3 @@
-Absolutely. Let’s do **Part A step by step**. I’ll use commands that work in **Windows Command Prompt (CMD)**.
 
 ### Step 1: Open Command Prompt
 
@@ -841,581 +840,58 @@ Before submitting, make sure you have:
 * [ ] Added import explanation
 * [ ] Added testing evidence
 
-**Start with Step 1 and Step 2.** Once you've entered the code into `utils.py`, you can send me what you have and I'll check it before we move to `main.py`
-
-Yes. Let's do **Part D step by step**. We will first publish your existing `python_lab` project, then create the feature branch and pull request.
-
-# Part D — Publishing to GitHub and Branch Workflow
-
-## Step 1: Make sure your local project is ready
-
-Open **Command Prompt** and go to your project:
-
-cmd
-cd %USERPROFILE%\python_lab
+**Start with Step 1 and Step 2.** Once you've entered the code into `utils.py`, you can send me what you have and I'll check it before we move to `main.py`.
 
 
-Check Git status:
-cmd
-git status
+Yes — you are referring to **Step 2: Go to your home directory**.
 
+If you are using **Windows Command Prompt**, do this:
 
-Ideally, you should see:
+### Step 2
 
-text
-nothing to commit, working tree clean
-
-
-If you see that, you're ready.
-
-
-
-# Step 2: Make sure your branch is called `main`
-
-Run:
+In the black Command Prompt window, type:
 
 cmd
-git branch
+cd %USERPROFILE%
 
 
-If you see:
+Then press **Enter**.
 
-text
-* master
-
-
-rename it to `main`:
+Now type:
 
 cmd
-git branch -M main
+cd
 
 
-Then check again:
-
-cmd
-git branch
-
-
-You should see:
-
-text
-* main
-
-
-
-
-# Step 3: Create the GitHub repository
-
-Go to GitHub in your browser.
-
-Create a **new repository**.
-
-Use these settings:
-
-**Repository name:**
-
-text
-python-lab
-
-
-Set it to:
-
-text
-Public
-
-
-### Very important
-
-When creating the repository, **DO NOT select**:
-
-* ❌ Add a README file
-* ❌ Add `.gitignore`
-* ❌ Choose a license
-
-Your local project already contains these files.
-
-Then click:
-
-**Create repository**
-
-
-
-# Step 4: Copy your GitHub repository URL
-
-After creating the repository, GitHub will show you the repository page.
-
-The URL will look like:
-
-text
-https://github.com/YOUR-USERNAME/python-lab.git
-
-
-Copy the URL.
-
-**Do not use my example URL. Use the URL for your own GitHub account.**
-
-
-
-# Step 5: Connect your local repository to GitHub
-
-Go back to Command Prompt.
-
-Make sure you're inside:
-
-text
-python_lab
-
-
-Then run:
-
-cmd
-git remote add origin https://github.com/YOUR-USERNAME/python-lab.git
-
-
-Replace `YOUR-USERNAME` with your actual GitHub username.
- `john123`:
-
-cmd
-git remote add origin https://github.com/john123/python-lab.git
-
-
-
-
-# Step 6: Check the remote
-
-Run:
-
-cmd
-git remote -v
-
+and press **Enter**.
 
 You should see something similar to:
 
 text
-origin  https://github.com/YOUR-USERNAME/python-lab.git (fetch)
-origin  https://github.com/YOUR-USERNAME/python-lab.git (push)
+C:\Users\YourName
 
 
-This confirms that your local project is connected to GitHub.
+That means you are in your **home directory**.
 
+### Next step
 
-
-# Step 7: Push your existing commits
-
-Now run:
+Now create the `python_lab` folder:
 
 cmd
-git push -u origin main
+mkdir python_lab
 
 
-Git will upload your commits to GitHub.
-
-If GitHub asks you to sign in, complete the GitHub authentication.
-
-After the command finishes, you should see something similar to:
-
-text
-[new branch]      main -> main
-
-
-
-
-# Step 8: Check GitHub
-
-Refresh your GitHub repository page.
-
-You should now see your project files.
-
-Your repository should contain something like:
-
-text
-python-lab
-│
-├── docs
-│   └── README.md
-│
-├── src
-│   ├── config.py
-│   ├── main.py
-│   └── utils.py
-│
-├── .gitignore
-
-
-GitHub should also show your commit history.
-
-### 📸 Take Screenshot 1
-
-Take a screenshot of your GitHub repository page showing:
-
-* Repository name: `python-lab`
-* Public repository
-* Your project files
-* Your commits/history
-
-This satisfies **Part D, Step 3**.
-
-
-
-# Step 9: Create the feature branch
-
-Now return to Command Prompt.
-
-Make sure you're in:
-
-text
-python_lab
-
-
-Run:
+Then enter it:
 
 cmd
-git checkout -b feature/add-greeting
+cd python_lab
 
 
-You should see:
-
-text
-Switched to a new branch 'feature/add-greeting'
-
-
-Check your branch:
-
-cmd
-git branch
-
-
-You should see:
+Your Command Prompt should now look similar to:
 
 text
-* feature/add-greeting
-  main
+C:\Users\YourName\python_lab>
 
 
-The `*` tells you which branch you're currently using.
-
-
-
-# Step 10: Add `greet()` to `utils.py`
-
-Open:
-
-text
-src/utils.py
-
-
-Currently you have:
-
-python
-def square(n):
-    return n * n
-
-
-def is_even(n):
-    return n % 2 == 0
-
-
-def celsius_to_fahrenheit(c):
-    return (c * 9 / 5) + 32
-
-
-Add this function underneath the other functions:
-
-python
-def greet(name)john:
-    return f"Hello, my name is john paul {name}!"
-
-
-So your complete `utils.py` becomes:
-
-python
-def square(n):
-    return n * n
-
-
-def is_even(n):
-    return n % 2 == 0
-
-
-def celsius_to_fahrenheit(c):
-    return (c * 9 / 5) + 32
-
-
-def greet(name):
-    return f"Hello,john how are you {name}!"
-
-
-Save the file.
-
-
-
-# Step 11: Update `main.py`
-
-Open:
-
-text
-src/main.py
-
-
-Change your import line from:
-
-python
-from utils import square, is_even, celsius_to_fahrenheit
-
-
-to:
-
-python
-from utils import square, is_even, celsius_to_fahrenheit, greet
-
-
-Then add a greeting to the program.
-
-A simple version of your complete `main.py` is:
-
-python
-from utils import square, is_even, celsius_to_fahrenheit, greet
-
-
-name = input("Enter your  name:john paul
- ")
-print(greet(name) hello paul
-)how are doing?
-
-number = float(input("Enter a number: "))
-
-print("Square:", square(number))
-
-if is_even(number):
-    print("Even: True")
-else:
-    print("Even: False")
-
-print("Fahrenheit:", celsius_to_fahrenheit(number))
-
-
-Save it.
-
-
-
-# Step 12: Test the new program
-
-Go to the project root:
-
-cmd
-cd %USERPROFILE%\python_lab
-
-
-Run:
-
-cmd
-python src\main.py
-
-
-For example, enter:
-
-text
-Enter your name: John
-
-
-Then:
-
-text
-Enter a number: 10
-
-
-You should get something similar to:
-
-text
-Enter your name: John
-Hello, John!
-Enter a number: 10
-Square: 100.0
-Even: True
-Fahrenheit: 50.0
-
-
-The important thing is that you see:
-
-text
-Hello, John!
-
-
-That confirms `greet()` is working.
-
-
-
-# Step 13: Check Git
-
-Run:
-
-cmd
-git status
-
-
-You should see:
-
-text
-modified:   src/main.py
-modified:   src/utils.py
-
-
-
-
-# Step 14: Stage the changes
-
-Run:
-
-cmd
-git add src/main.py src/utils.py
-
-
-Then:
-
-cmd
-git status
-
-
-The files should now appear under:
-
-text
-Changes to be committed
-
-
-
-
-# Step 15: Commit the feature
-
-Run:
-
-cmd
-git commit -m "Add personalized greeting function"
-
-
-You should see confirmation that the commit was created.
-
-
-
-# Step 16: Push your new branch to GitHub
-
-Run:
-
-cmd
-git push -u origin feature/add-greeting
-
-
-This creates the branch on GitHub.
-
-You should see something similar to:
-
-text
-[new branch] feature/add-greeting heloo
-john -> feature/add-greeting how areyou doing?
-
-
-
-
-# Step 17: Open the Pull Request
-
-Go back to your GitHub repository in your browser.
-
-GitHub may show a message such as:
-
-**`feature/add-greeting` had recent pushes**
-
-with a button:
-
-**Compare & pull request**
-
-Click it.
-
-If you don't see the button:
-
-1. Click **Pull requests**.
-2. Click **New pull request**.
-3. Set:
-
-text
-base: main
-compare: feature/add-greeting
-
-
-You want:
-
-text
-main  ←  feature/add-greeting
-
-
-
-
-# Step 18: Create the Pull Request
-
-Give it a clear title:
-
-text
-Add personalized greeting function
-
-
-You can write a short description such as:
-
-text
-This pull request adds a greet() function to utils.py and uses it in main.py to display a personalized greeting.
-
-
-Then click:
-
-**Create pull request**
-
-
-
-# Step 19: Take your final screenshot 📸
-
-Your assignment specifically asks for a screenshot of the **open pull request**.
-
-Make sure the screenshot shows:
-
-* Pull request title
-* `feature/add-greeting` → `main`
-* Your changed files/PR information
-* The pull request is open
-
-That is your **second important screenshot** for Part D.
-
-
-
-# ✅ Part D checklist
-
-Before submitting, make sure you have completed:
-
-* [ ] Created public GitHub repository `python-lab`
-* [ ] Did **not** initialize GitHub repository with README
-* [ ] Connected local repository to GitHub
-* [ ] Pushed `main`
-* [ ] Confirmed files appear on GitHub
-* [ ] Took GitHub repository screenshot
-* [ ] Created `feature/add-greeting`
-* [ ] Added `greet(name)` to `utils.py`
-* [ ] Imported `greet` into `main.py`
-* [ ] Called `greet()` from `main.py`
-* [ ] Tested the program
-* [ ] Committed the changes
-* [ ] Pushed `feature/add-greeting`
-* [ ] Created pull request into `main`
-* [ ] Took screenshot of the open pull request
-
-### The two main Git commands to remember
-
-**Publish `main`:**
-
-cmd
-git push -u origin main
-
-
-**Publish the feature branch:**
-
-cmd
-git push -u origin feature/add-greeting
-
-
-**Important:** Don't click **Merge pull request** yet unless your assignment specifically tells you to merge it. The requirement here is to **open the pull request and take a screenshot**.
-
+**Stop there.** If you send me what appears on your screen after `cd %USERPROFILE%`, I'll take you through the next command one at a time.
+![alt text](image.png)
